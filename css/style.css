@@ -1,0 +1,107 @@
+
+
+h1,
+h1,
+h2,
+h3,
+h4,
+h5{
+    font-family: Verdana, Geneva, sans-serif;
+}
+.wrapper{
+background-color: #5978be;
+padding: 20px 0px;
+}
+
+aside{
+    border-right: 1px solid #CCC;
+}
+
+.photo{
+    padding: 0px 15px;
+    margin-bottom: 15px;
+}
+
+img{
+    width: 100%;
+}
+
+.list-group{
+    box-shadow: none;
+}
+
+.list-group-item{
+background-color: transparent;
+border: none;
+color: #CCC;
+}
+
+.list-group-item-heading{
+    text-transform: capitalize;
+}
+
+.my_skills .thumbnail{
+    border-width: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFF;
+    // box-shadow: 0 0.5px 2px rgba(0, 0, 0, 0.5);
+    background-color: #78c5ff;
+}
+
+.my_skills .fa {
+    display: block;
+    font-size: 2em;
+    line-height: 80px;
+}
+
+footer{
+    padding: 30px 0px;
+}
+
+.phone {
+    background: none repeat scroll 0 0 #78C5FF;
+    font-size: 18px;
+    margin: 30px auto;
+    padding: 10px;
+    text-align: center;
+    width: 70%;
+    border-radius: 4px;
+    color: #FFF;
+    // box-shadow: 0 0.5px 2px rgba(0, 0, 0, 0.5);
+}
+.phone * {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.contacts{
+    list-style: none;
+    text-align: center;
+}
+
+.contacts li{
+     padding-right: 2.5em;
+     display: inline-block;
+     font-size: 2em;
+}
+
+
+/* Theme 2 */
+
+// .wrapper{
+// background-color: #919191;
+// }
+
+// .my_skills .thumbnail{
+//     border-bottom: 2px solid red;
+//     color: #FFF;
+//     box-shadow: none;
+//     background-color: #565656;
+//     border-radius: 0px;
+// }
+
+// aside{
+//     border-right: 1px solid red;
+// }
+
