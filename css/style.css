@@ -41,13 +41,29 @@ color: #CCC;
 }
 
 .my_skills .thumbnail{
+    margin-bottom: 61px;
     border-width: 0px;
     text-align: center;
     text-transform: uppercase;
     color: #FFF;
     // box-shadow: 0 0.5px 2px rgba(0, 0, 0, 0.5);
     background-color: #408DD2;
+    animation-duration: 1.9s;
 }
+
+.my_history+div+div .thumbnail{
+    animation-delay: 0.3s;
+}
+
+.my_history+div+div+div .thumbnail{
+     animation-delay: 0.9s;
+}
+
+/* box-shadow: -3px 0px 3px 4px rgba(255, 255, 255, 0.85);
+    height: 5px;
+    width: 155px;
+    border-radius: 50%; */
+
 
 .my_skills .fa {
     display: block;
@@ -55,6 +71,60 @@ color: #CCC;
     line-height: 80px;
     color: #64B6FF;
 }
+
+.my_history{
+    position: relative;
+}
+
+.my_history .fa{
+    display: inline-block;
+    position: absolute;
+    z-index: 9999;
+    text-align: right;
+
+    // right: 100%;
+     right: 0px;
+    top: 0px;
+    line-height: 0px;
+     // animation-duration: 3s;
+     // animation-timing-function:  ease-out;
+     // transition: all 2.5s  cubic-bezier(0.9, 0.11, 0.48, 0.73);
+
+      animation-duration:  6s;
+     animation-timing-function:   cubic-bezier(0.9, 0.11, 0.48, 0.73);
+
+
+
+    //  box-shadow: -5px 0px 22px 11px rgba(255, 255, 255, 0.85);
+
+     transition: all 2s  linear;
+}
+
+.my_history .fa:after{
+    position: absolute;
+    content: '';
+    left: 0px;
+
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+
+    box-shadow: -3px 0px 6px 9px rgba(255, 255, 255, 0.85);
+    animation: zoomIn 1s linear 0s infinite;
+}
+
+// .my_history .fa.active{
+//     right: 0px;
+// }
+
+.my_history .fa.bounceInLeft{
+// box-shadow: -5px 0px 4px 14px rgba(255, 255, 255, 1);
+// width: 300px;
+// box-shadow: -3px 0px 3px 4px rgba(255, 255, 255, 0.85);
+}
+
+
+
 
 footer{
     padding: 30px 0px;
