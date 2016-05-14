@@ -1,4 +1,122 @@
 
+/*=============================
+=            mixin            =
+=============================*/
+
+.my_transition(@transition){
+-ms-transition:  @transition;
+-webkit-transition:  @transition;
+-moz-transition:  @transition;
+ transition: @transition;
+}
+
+.my_trasform(@transform){
+-o-transform+_: @transform;
+-ms-transform+_:@transform;
+ -moz-transform+_: @transform;
+-webkit-transform+_: @transform ;
+ transform+_: @transform ;
+}
+
+ .my_transform-origin(@transform-origin){
+-ms-transform-origin: @transform-origin;
+-moz-transform-origin: @transform-origin;
+-webkit-transform-origin: @transform-origin;
+transform-origin: @transform-origin;
+}
+
+.my_opacity (@alpha) {
+    @ms-alpha : @alpha*100;
+    -ms-filter:progid:DXImageTransform.Microsoft.Alpha(opacity=@ms-alpha);
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=@ms-alpha);
+    // TODO: fix me
+    //filter:~`"alpha(opacity="+@ms-alpha+")"`;
+    -moz-opacity: @alpha;
+    -khtml-opacity: @alpha;
+    opacity: @alpha;
+}
+
+.animation(
+    @name,
+    @duration:3s,
+    @animation-delay: 0s,
+    @count:1,
+    @direction:name,
+    @function:linear,
+    @animation-play-state:running,
+    @animation-fill-mode:forwards
+ ) {
+    -webkit-animation-name+: @name;
+    -moz-animation-name+: @name;
+    -ms-animation-name+: @name;
+    -o-animation-name+: @name;
+    animation-name+: @name;
+
+    -webkit-animation-duration+: @duration;
+    -moz-animation-duration+: @duration;
+    -ms-animation-duration+: @duration;
+    -o-animation-duration+: @duration;
+    animation-duration+: @duration;
+
+    -webkit-animation-iteration-count+: @count;
+    -moz-animation-iteration-count+: @count;
+    -ms-animation-iteration-count+: @count;
+    -o-animation-iteration-count+: @count;
+    animation-iteration-count+: @count;
+
+    -webkit-animation-direction+: @direction;
+    -moz-animation-direction+: @direction;
+    -ms-animation-direction+: @direction;
+    -o-animation-direction+: @direction;
+    animation-direction+: @direction;
+
+    -webkit-animation-timing-function+: @function;
+    -moz-animation-timing-function+: @function;
+    -ms-animation-timing-function+: @function;
+    -o-animation-timing-function+: @function;
+    animation-timing-function+: @function;
+
+    -webkit-animation-play-state+: @animation-play-state;
+    -moz-animation-play-state+: @animation-play-state;
+    -ms-animation-play-state+: @animation-play-state;
+    -o-animation-play-state+: @animation-play-state;
+    animation-play-state+: @animation-play-state;
+
+    -webkit-animation-fill-mode+: @animation-fill-mode;
+    -moz-animation-fill-mode+: @animation-fill-mode;
+    -ms-animation-fill-mode+: @animation-fill-mode;
+    -o-animation-fill-mode+: @animation-fill-mode;
+    animation-fill-mode+: @animation-fill-mode;
+
+    -webkit-animation-delay+: @animation-delay;
+    -moz-animation-delay+: @animation-delay;
+    -ms-animation-delay+: @animation-delay;
+    -o-animation-delay+: @animation-delay;
+    animation-delay+:@animation-delay;
+}
+
+.transition_cross_trf (@property: all,@duration: 0s,@delay: 0s,@ease: ease-in-out) when (@property=transform) {
+    -webkit-transition+: -webkit-transform @duration @delay @ease;
+       -moz-transition+:    -moz-transform @duration @delay @ease;
+         -o-transition+:      -o-transform @duration @delay @ease;
+            transition+:     -ms-transform @duration @delay @ease,
+                                 transform @duration @delay @ease;
+
+}
+
+
+.transition_cross_trf (@property: all,@duration: 0s,@delay: 0s,@ease: ease-in-out) when not (@property=transform) {
+    -webkit-transition+: @arguments;
+       -moz-transition+: @arguments;
+         -o-transition+: @arguments;
+            transition+: @arguments;
+}
+
+
+
+
+
+/*=====  End of mixin  ======*/
 
 h1,
 h1,
@@ -6,168 +124,191 @@ h2,
 h3,
 h4,
 h5{
-    font-family: Verdana, Geneva, sans-serif;
+font-family: Verdana, Geneva, sans-serif;
 }
+
 .wrapper{
 background-color: #0C5DA5;
 padding: 20px 0px;
 overflow: hidden;
 }
 
-aside{
+
+/*=============================================
+=            Left Sidebar            =
+=============================================*/
+    aside{
     border-right: 1px solid #CCC;
-}
+    }
+        .photo{
+        padding: 0px 15px;
+        margin-bottom: 15px;
+        }
 
-.photo{
-    padding: 0px 15px;
-    margin-bottom: 15px;
-}
+            img{
+            width: 100%;
+            }
+                .list-group{
+                box-shadow: none;
 
-img{
-    width: 100%;
-}
+                    &-item{
+                    background-color: transparent;
+                    border: none;
+                    color: #CCC;
+                    }
 
-.list-group{
-    box-shadow: none;
-}
+                    &-item-heading{
+                    text-transform: capitalize;
+                    }
+                }
 
-.list-group-item{
-background-color: transparent;
-border: none;
-color: #CCC;
-}
-
-.list-group-item-heading{
-    text-transform: capitalize;
-}
-
-.my_skills .thumbnail{
-    margin-bottom: 61px;
-    border-width: 0px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #FFF;
-    // box-shadow: 0 0.5px 2px rgba(0, 0, 0, 0.5);
-    background-color: #408DD2;
-    animation-duration: 1.9s;
-}
-
-.track+div+div .thumbnail{
-    animation-delay: 0.3s;
-}
-
-.track+div+div+div .thumbnail{
-     animation-delay: 0.9s;
-}
-
-/* box-shadow: -3px 0px 3px 4px rgba(255, 255, 255, 0.85);
-    height: 5px;
-    width: 155px;
-    border-radius: 50%; */
+/*=====  End of  Left Sidebar  ======*/
 
 
-.my_skills .fa {
-    display: block;
-    font-size: 2em;
-    line-height: 80px;
-    color: #64B6FF;
-}
+/*=============================================
+=            Right Sidebar            =
+=============================================*/
 
-.my_skills .zoomIn .fa{
-    color: white;
-    text-shadow: 2 0 0 #000;
 
-}
+    .my_skills{
 
-.track{
+
+
+        .thumbnail{
+        margin-bottom: 61px;
+        border-width: 0px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFF;
+        background-color: #408DD2;
+        animation-duration: 1.9s;
+        -moz-animation-duration: 1.9s;
+        -webkit-animation-duration: 1.9s;
+        }
+
+            .fa {
+            display: block;
+            font-size: 2em;
+            line-height: 80px;
+            color: #64B6FF;
+            .my_transition(0.3s);
+            }
+
+            .zoomIn .fa{
+            color: white;
+            }
+    }
+// @shuttle_transform_time: 3.3s;
+// @shuttle_transition_function: 3.3s;
+
+    .track{
     position: relative;
-}
 
-.track .fa{
-    display: inline-block;
-    position: absolute;
-    z-index: 9999;
-    text-align: right;
+        &+div+div .thumbnail{
+        animation-delay: 0.3s;
+        -moz-animation-delay: 0.3s;
+        -webkit-animation-delay: 0.3s;
+        }
 
-    // right: 100%;
-     right: 0px;
-    top: 0px;
-    top: 54px;
-    line-height: 0px;
-    color: #64B6FF;
-     // animation-duration: 3s;
-     // animation-timing-function:  ease-out;
-     // transition: all 2.5s  cubic-bezier(0.9, 0.11, 0.48, 0.73);
+        &+div+div+div .thumbnail{
+        animation-delay: 0.9s;
+        -moz-animation-delay: 0.9s;
+        -webkit-animation-delay: 0.9s;
+        }
 
-      animation-duration:  6s;
-     animation-timing-function:   cubic-bezier(0.9, 0.11, 0.48, 0.73);
+        .fa{
+        display: inline-block;
+        position: absolute;
+        z-index: 9999;
+        text-align: right;
+        // right: 1999px;
+        right: 0;
+        .my_trasform(translateX(-100vw));
+        top: 0px;
+        top: 54px;
+        line-height: 0px;
+        color: #64B6FF;
+        .my_opacity (1);
 
+        // .my_transition(all 3.5s  0s  cubic-bezier(0.9, 0.11, 0.48, 0.73));
+        .transition_cross_trf(transform, 3.3s ,0s ,cubic-bezier(0.9, 0.11, 0.48, 0.73));
+        .transition_cross_trf(opacity, 0s ,3.3s ,linear);
+        pointer-events: none;
+        // .my_opacity (0);
 
+        &.bounceInLeft{
+            .my_opacity (1);
+            @animation-duration:  5s;
+        @animation-function_1:  cubic-bezier(0.9, 0.11, 0.48, 0.73);
+        @animation-function_2: linear;
+        @animation-delay: 0s;
 
-    //  box-shadow: -5px 0px 22px 11px rgba(255, 255, 255, 0.85);
-
-     // transition: opacity 0.5s  linear;
-
-     transition: all 5s  0s linear;
-     pointer-events: none;
-}
-
-.track .fa.active{
-     // opacity: 0;
-}
-
-.track .fa:after{
-    position: absolute;
-    content: '';
-    left: 0px;
-    display: none;
-
-    width: 1px;
-    height: 1px;
-    border-radius: 0%;
-    background-color: #fff;
-
-    // box-shadow: -3px 0px 6px 9px rgba(255, 255, 255, 0);
-    // animation: zoomIn 1s linear 0s infinite;
-    // transition: all 1s  linear;
-     transform: scaleX(0);
-     pointer-events: none;
-     // opacity: 0;
-
-     transition: all 0s  0.5s linear;
-
-
-}
-
-
-
-.track .fa.active{
-    opacity: 0;
-    color: white;
-}
-
-.track .fa.bounceInLeft:after{
-// box-shadow: -5px 0px 4px 14px rgba(255, 255, 255, 1);
-// width: 300px;
-// box-shadow: -3px 0px 3px 4px rgba(255, 255, 255, 0.85);
-
- // box-shadow: -3px 0px 12px 19px rgba(255, 255, 255, 0.85);
-     transform: scaleX(9999);
-    transform-origin: right center;
-    display: block;
-
-    // animation: fadeOutLeftBig 1s  1s linear 0s infinite;
-
-        animation: fadeOut 5s linear 0s 1 normal both ;
-
-
-}
+        animation-duration:  @animation-duration;
+        -moz-animation-duration:  @animation-duration;
+        -webkit-animation-duration:  @animation-duration;
+        animation-timing-function:   @animation-function_1;
+        -moz-animation-timing-function:   @animation-function_1;
+        -webkit-animation-timing-function:   @animation-function_1;
+        -webkit-animation-delay+: @animation-delay;
+        -moz-animation-delay+: @animation-delay;
+        -ms-animation-delay+: @animation-delay;
+        -o-animation-delay+: @animation-delay;
+        animation-delay+:@animation-delay;
+        }
 
 
 
 
+        &.FlyInLeft{
+        .my_opacity (0);
+         .my_trasform(translateX(20vw));
+        }
+
+         &.active{
+        }
+
+        // &.invisible{
+        //     visibility: hidden;
+        // }
+            &:after{
+            position: absolute;
+            content: '';
+            left: 0px;
+            top: 1px;
+            // display: none;
+            width: 1px;
+            height: 1px;
+            border-radius: 0%;
+            background-color: #fff;
+            .my_trasform(scaleX(0vw));
+            // .my_trasform(scaleX(999));
+            // .my_trasform(translate(100vw));
+            pointer-events: none;
+            .my_transition(all 3.3s  0s cubic-bezier(0.9, 0.11, 0.48, 0.73));
+            }
+
+            // &.active{
+            // .my_opacity (0);
+            // color: white;
+            // }
+
+            &.active:after{
+            .my_trasform(translate(-20vw));
+            .my_trasform(scaleX(100vw));
+            // .my_trasform(scaleX(999));
+             .my_transform-origin(right center);
+            display: block;
+            // animation: fadeOut 4s linear 0s 1 normal both ;
+            }
+        }
+    }
+
+/*=====  End of Right Sidebar  ======*/
 
 
+/*==============================
+=            Footer            =
+==============================*/
 
 footer{
     padding: 30px 0px;
@@ -182,7 +323,6 @@ footer{
     width: 70%;
     border-radius: 4px;
     color: #FFF;
-    // box-shadow: 0 0.5px 2px rgba(0, 0, 0, 0.5);
 }
 .phone * {
     display: inline-block;
@@ -201,21 +341,9 @@ footer{
 }
 
 
-/* Theme 2 */
 
-// .wrapper{
-// background-color: #919191;
-// }
+/*=====  End of Footer  ======*/
 
-// .my_skills .thumbnail{
-//     border-bottom: 2px solid red;
-//     color: #FFF;
-//     box-shadow: none;
-//     background-color: #565656;
-//     border-radius: 0px;
-// }
 
-// aside{
-//     border-right: 1px solid red;
-// }
+
 

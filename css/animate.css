@@ -872,6 +872,14 @@
 .bounceInLeft {
   -webkit-animation-name: bounceInLeft;
   animation-name: bounceInLeft;
+    // animation-duration: 4s;
+    //     -moz-animation-duration:  4s;
+    //     -webkit-animation-duration:  4s;
+    //     -webkit-animation-delay: 0s;
+    // -moz-animation-delay: 0s ;
+    // -ms-animation-delay: 0s;
+    // -o-animation-delay: 0s;
+    // animation-delay: 0s;
 }
 
 @-webkit-keyframes bounceInRight {

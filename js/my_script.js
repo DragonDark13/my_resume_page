@@ -18,25 +18,20 @@ scrollHorizontal - Установить "true" если сайт имеет го
 // jQuery('.my_skills .thumbnail').addClass('invisible');
 
 
-var CheckerOffset = 160;
+var CheckerOffset = 180;
 
 jQuery('.track .fa').viewportChecker({
-classToAdd: ' animated bounceInLeft',
+classToAdd: 'FlyInLeft',
       classToRemove: 'invisible',
-      offset: CheckerOffset,
+      offset: 140,
       invertBottomOffset: false,
       repeat: false,
       callbackFunction: function(elem, action){
 
 elem.addClass('active ');
 
-
       },
-
 });
-
-
-
 
     jQuery('.my_skills .thumbnail').viewportChecker({
       classToAdd: ' animated zoomIn',

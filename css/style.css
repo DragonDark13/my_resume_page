@@ -1,3 +1,7 @@
+/*=============================
+=            mixin            =
+=============================*/
+/*=====  End of mixin  ======*/
 h1,
 h1,
 h2,
@@ -11,6 +15,9 @@ h5 {
   padding: 20px 0px;
   overflow: hidden;
 }
+/*=============================================
+=            Left Sidebar            =
+=============================================*/
 aside {
   border-right: 1px solid #CCC;
 }
@@ -32,6 +39,10 @@ img {
 .list-group-item-heading {
   text-transform: capitalize;
 }
+/*=====  End of  Left Sidebar  ======*/
+/*=============================================
+=            Right Sidebar            =
+=============================================*/
 .my_skills .thumbnail {
   margin-bottom: 61px;
   border-width: 0px;
@@ -40,68 +51,127 @@ img {
   color: #FFF;
   background-color: #408DD2;
   animation-duration: 1.9s;
+  -moz-animation-duration: 1.9s;
+  -webkit-animation-duration: 1.9s;
 }
-.track + div + div .thumbnail {
-  animation-delay: 0.3s;
-}
-.track + div + div + div .thumbnail {
-  animation-delay: 0.9s;
-}
-/* box-shadow: -3px 0px 3px 4px rgba(255, 255, 255, 0.85);
-    height: 5px;
-    width: 155px;
-    border-radius: 50%; */
 .my_skills .fa {
   display: block;
   font-size: 2em;
   line-height: 80px;
   color: #64B6FF;
+  -ms-transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
 }
 .my_skills .zoomIn .fa {
   color: white;
-  text-shadow: 2 0 0 #000;
 }
 .track {
   position: relative;
+}
+.track + div + div .thumbnail {
+  animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+}
+.track + div + div + div .thumbnail {
+  animation-delay: 0.9s;
+  -moz-animation-delay: 0.9s;
+  -webkit-animation-delay: 0.9s;
 }
 .track .fa {
   display: inline-block;
   position: absolute;
   z-index: 9999;
   text-align: right;
-  right: 0px;
+  right: 0;
+  -o-transform: translateX(-100vw);
+  -ms-transform: translateX(-100vw);
+  -moz-transform: translateX(-100vw);
+  -webkit-transform: translateX(-100vw);
+  transform: translateX(-100vw);
   top: 0px;
   top: 54px;
   line-height: 0px;
   color: #64B6FF;
-  animation-duration: 6s;
-  animation-timing-function: cubic-bezier(0.9, 0.11, 0.48, 0.73);
-  transition: all 5s  0s linear;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  -webkit-transition: -webkit-transform 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73), opacity 0s 3.3s linear;
+  -moz-transition: -moz-transform 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73), opacity 0s 3.3s linear;
+  -o-transition: -o-transform 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73), opacity 0s 3.3s linear;
+  transition: -ms-transform 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73), transform 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73), opacity 0s 3.3s linear;
   pointer-events: none;
+}
+.track .fa.bounceInLeft {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+  animation-duration: 5s;
+  -moz-animation-duration: 5s;
+  -webkit-animation-duration: 5s;
+  animation-timing-function: cubic-bezier(0.9, 0.11, 0.48, 0.73);
+  -moz-animation-timing-function: cubic-bezier(0.9, 0.11, 0.48, 0.73);
+  -webkit-animation-timing-function: cubic-bezier(0.9, 0.11, 0.48, 0.73);
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -ms-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.track .fa.FlyInLeft {
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  -o-transform: translateX(20vw);
+  -ms-transform: translateX(20vw);
+  -moz-transform: translateX(20vw);
+  -webkit-transform: translateX(20vw);
+  transform: translateX(20vw);
 }
 .track .fa:after {
   position: absolute;
   content: '';
   left: 0px;
-  display: none;
+  top: 1px;
   width: 1px;
   height: 1px;
   border-radius: 0%;
   background-color: #fff;
-  transform: scaleX(0);
+  -o-transform: scaleX(0vw);
+  -ms-transform: scaleX(0vw);
+  -moz-transform: scaleX(0vw);
+  -webkit-transform: scaleX(0vw);
+  transform: scaleX(0vw);
   pointer-events: none;
-  transition: all 0s  0.5s linear;
+  -ms-transition: all 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73);
+  -webkit-transition: all 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73);
+  -moz-transition: all 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73);
+  transition: all 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73);
 }
-.track .fa.active {
-  opacity: 0;
-  color: white;
-}
-.track .fa.bounceInLeft:after {
-  transform: scaleX(9999);
+.track .fa.active:after {
+  -o-transform: translate(-20vw) scaleX(100vw);
+  -ms-transform: translate(-20vw) scaleX(100vw);
+  -moz-transform: translate(-20vw) scaleX(100vw);
+  -webkit-transform: translate(-20vw) scaleX(100vw);
+  transform: translate(-20vw) scaleX(100vw);
+  -ms-transform-origin: right center;
+  -moz-transform-origin: right center;
+  -webkit-transform-origin: right center;
   transform-origin: right center;
   display: block;
-  animation: fadeOut 5s linear 0s 1 normal both ;
 }
+/*=====  End of Right Sidebar  ======*/
+/*==============================
+=            Footer            =
+==============================*/
 footer {
   padding: 30px 0px;
 }
@@ -128,4 +198,4 @@ footer {
   display: inline-block;
   font-size: 2em;
 }
-/* Theme 2 */
+/*=====  End of Footer  ======*/
