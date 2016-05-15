@@ -43,16 +43,19 @@ img {
 /*=============================================
 =            Right Sidebar            =
 =============================================*/
+/* variables for animation */
 .my_skills .thumbnail {
-  margin-bottom: 61px;
+  margin-bottom: 23px;
   border-width: 0px;
   text-align: center;
   text-transform: uppercase;
   color: #FFF;
   background-color: #408DD2;
-  animation-duration: 1.9s;
-  -moz-animation-duration: 1.9s;
   -webkit-animation-duration: 1.9s;
+  -moz-animation-duration: 1.9s;
+  -ms-animation-duration: 1.9s;
+  -o-animation-duration: 1.9s;
+  animation-duration: 1.9s;
 }
 .my_skills .fa {
   display: block;
@@ -71,28 +74,26 @@ img {
   position: relative;
 }
 .track + div + div .thumbnail {
-  animation-delay: 0.3s;
-  -moz-animation-delay: 0.3s;
   -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  -ms-animation-delay: 0.3s;
+  -o-animation-delay: 0.3s;
+  animation-delay: 0.3s;
 }
 .track + div + div + div .thumbnail {
-  animation-delay: 0.9s;
-  -moz-animation-delay: 0.9s;
   -webkit-animation-delay: 0.9s;
+  -moz-animation-delay: 0.9s;
+  -ms-animation-delay: 0.9s;
+  -o-animation-delay: 0.9s;
+  animation-delay: 0.9s;
 }
 .track .fa {
   display: inline-block;
   position: absolute;
-  z-index: 9999;
-  text-align: right;
   right: 0;
-  -o-transform: translateX(-100vw);
-  -ms-transform: translateX(-100vw);
-  -moz-transform: translateX(-100vw);
-  -webkit-transform: translateX(-100vw);
-  transform: translateX(-100vw);
   top: 0px;
   top: 54px;
+  text-align: right;
   line-height: 0px;
   color: #64B6FF;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
@@ -100,31 +101,19 @@ img {
   -moz-opacity: 1;
   -khtml-opacity: 1;
   opacity: 1;
-  -webkit-transition: -webkit-transform 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73), opacity 0s 3.3s linear;
-  -moz-transition: -moz-transform 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73), opacity 0s 3.3s linear;
-  -o-transition: -o-transform 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73), opacity 0s 3.3s linear;
-  transition: -ms-transform 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73), transform 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73), opacity 0s 3.3s linear;
+  -o-transform: translateX(-100vw);
+  -ms-transform: translateX(-100vw);
+  -moz-transform: translateX(-100vw);
+  -webkit-transform: translateX(-100vw);
+  transform: translateX(-100vw);
+  -webkit-transition: -webkit-transform 4s 0s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0s 4s linear;
+  -moz-transition: -moz-transform 4s 0s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0s 4s linear;
+  -o-transition: -o-transform 4s 0s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0s 4s linear;
+  transition: -ms-transform 4s 0s cubic-bezier(0.22, 0.61, 0.36, 1), transform 4s 0s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0s 4s linear;
   pointer-events: none;
+  z-index: 9999;
 }
-.track .fa.bounceInLeft {
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
-  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
-  -moz-opacity: 1;
-  -khtml-opacity: 1;
-  opacity: 1;
-  animation-duration: 5s;
-  -moz-animation-duration: 5s;
-  -webkit-animation-duration: 5s;
-  animation-timing-function: cubic-bezier(0.9, 0.11, 0.48, 0.73);
-  -moz-animation-timing-function: cubic-bezier(0.9, 0.11, 0.48, 0.73);
-  -webkit-animation-timing-function: cubic-bezier(0.9, 0.11, 0.48, 0.73);
-  -webkit-animation-delay: 0s;
-  -moz-animation-delay: 0s;
-  -ms-animation-delay: 0s;
-  -o-animation-delay: 0s;
-  animation-delay: 0s;
-}
-.track .fa.FlyInLeft {
+.track .fa.active {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
   filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
   -moz-opacity: 0;
@@ -139,34 +128,61 @@ img {
 .track .fa:after {
   position: absolute;
   content: '';
-  left: 0px;
+  right: 0;
   top: 1px;
-  width: 1px;
+  width: 150vw;
   height: 1px;
   border-radius: 0%;
-  background-color: #fff;
-  -o-transform: scaleX(0vw);
-  -ms-transform: scaleX(0vw);
-  -moz-transform: scaleX(0vw);
-  -webkit-transform: scaleX(0vw);
-  transform: scaleX(0vw);
+  background-color: white;
   pointer-events: none;
-  -ms-transition: all 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73);
-  -webkit-transition: all 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73);
-  -moz-transition: all 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73);
-  transition: all 3.3s 0s cubic-bezier(0.9, 0.11, 0.48, 0.73);
+  -ms-transition: all 4s 0s cubic-bezier(0.22, 0.61, 0.36, 1);
+  -webkit-transition: all 4s 0s cubic-bezier(0.22, 0.61, 0.36, 1);
+  -moz-transition: all 4s 0s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 4s 0s cubic-bezier(0.22, 0.61, 0.36, 1);
+  z-index: -1;
 }
 .track .fa.active:after {
-  -o-transform: translate(-20vw) scaleX(100vw);
-  -ms-transform: translate(-20vw) scaleX(100vw);
-  -moz-transform: translate(-20vw) scaleX(100vw);
-  -webkit-transform: translate(-20vw) scaleX(100vw);
-  transform: translate(-20vw) scaleX(100vw);
-  -ms-transform-origin: right center;
-  -moz-transform-origin: right center;
-  -webkit-transform-origin: right center;
-  transform-origin: right center;
   display: block;
+  -webkit-animation-name: fadeOut;
+  -moz-animation-name: fadeOut;
+  -ms-animation-name: fadeOut;
+  -o-animation-name: fadeOut;
+  animation-name: fadeOut;
+  -webkit-animation-duration: 4s;
+  -moz-animation-duration: 4s;
+  -ms-animation-duration: 4s;
+  -o-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -ms-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -o-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -ms-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
+  -ms-animation-play-state: running;
+  -o-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -ms-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
 }
 /*=====  End of Right Sidebar  ======*/
 /*==============================

@@ -18,13 +18,6 @@
  transform+_: @transform ;
 }
 
- .my_transform-origin(@transform-origin){
--ms-transform-origin: @transform-origin;
--moz-transform-origin: @transform-origin;
--webkit-transform-origin: @transform-origin;
-transform-origin: @transform-origin;
-}
-
 .my_opacity (@alpha) {
     @ms-alpha : @alpha*100;
     -ms-filter:progid:DXImageTransform.Microsoft.Alpha(opacity=@ms-alpha);
@@ -38,13 +31,13 @@ transform-origin: @transform-origin;
 
 .animation(
     @name,
-    @duration:3s,
+    @duration:@shutter_animation_duration,
     @animation-delay: 0s,
     @count:1,
-    @direction:name,
     @function:linear,
     @animation-play-state:running,
-    @animation-fill-mode:forwards
+    @animation-fill-mode:both,
+    @direction:normal
  ) {
     -webkit-animation-name+: @name;
     -moz-animation-name+: @name;
@@ -95,6 +88,23 @@ transform-origin: @transform-origin;
     animation-delay+:@animation-delay;
 }
 
+.animation_duration(@duration:@thumbnail_anim_duration)
+{
+     -webkit-animation-duration: @duration;
+    -moz-animation-duration: @duration;
+    -ms-animation-duration: @duration;
+    -o-animation-duration: @duration;
+    animation-duration: @duration;
+}
+
+.animation_delay(@animation-delay:@two_row_thumbnail_anim_delay){
+     -webkit-animation-delay: @animation-delay;
+    -moz-animation-delay: @animation-delay;
+    -ms-animation-delay: @animation-delay;
+    -o-animation-delay: @animation-delay;
+    animation-delay:@animation-delay;
+}
+
 .transition_cross_trf (@property: all,@duration: 0s,@delay: 0s,@ease: ease-in-out) when (@property=transform) {
     -webkit-transition+: -webkit-transform @duration @delay @ease;
        -moz-transition+:    -moz-transform @duration @delay @ease;
@@ -112,11 +122,7 @@ transform-origin: @transform-origin;
             transition+: @arguments;
 }
 
-
-
-
-
-/*=====  End of mixin  ======*/
+ /*=====  End of mixin  ======*/
 
 h1,
 h1,
@@ -170,20 +176,30 @@ overflow: hidden;
 =============================================*/
 
 
+/* variables for animation */
+
+@thumbnail_anim_duration: 1.9s;
+@two_row_thumbnail_anim_delay: 0.3s;
+@third_row_thumbnail_anim_delay: 0.9s;
+@start_translate: -100vw;
+@end_translate: 20vw;
+@shutter_animation_duration: 4s;
+// @transition_function: cubic-bezier(0.9, 0.11, 0.48, 0.73);
+
+@transition_function:cubic-bezier(0.22, 0.61, 0.36, 1);
+
+
+
     .my_skills{
 
-
-
         .thumbnail{
-        margin-bottom: 61px;
+        margin-bottom: 23px;
         border-width: 0px;
         text-align: center;
         text-transform: uppercase;
         color: #FFF;
         background-color: #408DD2;
-        animation-duration: 1.9s;
-        -moz-animation-duration: 1.9s;
-        -webkit-animation-duration: 1.9s;
+        .animation_duration;
         }
 
             .fa {
@@ -198,107 +214,56 @@ overflow: hidden;
             color: white;
             }
     }
-// @shuttle_transform_time: 3.3s;
-// @shuttle_transition_function: 3.3s;
 
     .track{
     position: relative;
 
         &+div+div .thumbnail{
-        animation-delay: 0.3s;
-        -moz-animation-delay: 0.3s;
-        -webkit-animation-delay: 0.3s;
+       .animation_delay;
         }
 
         &+div+div+div .thumbnail{
-        animation-delay: 0.9s;
-        -moz-animation-delay: 0.9s;
-        -webkit-animation-delay: 0.9s;
+        .animation_delay(@third_row_thumbnail_anim_delay);
         }
 
         .fa{
         display: inline-block;
         position: absolute;
-        z-index: 9999;
-        text-align: right;
-        // right: 1999px;
         right: 0;
-        .my_trasform(translateX(-100vw));
         top: 0px;
         top: 54px;
+        text-align: right;
         line-height: 0px;
         color: #64B6FF;
         .my_opacity (1);
-
-        // .my_transition(all 3.5s  0s  cubic-bezier(0.9, 0.11, 0.48, 0.73));
-        .transition_cross_trf(transform, 3.3s ,0s ,cubic-bezier(0.9, 0.11, 0.48, 0.73));
-        .transition_cross_trf(opacity, 0s ,3.3s ,linear);
+        .my_trasform(translateX(@start_translate));
+        .transition_cross_trf(transform, @shutter_animation_duration ,0s ,@transition_function);
+        .transition_cross_trf(opacity, 0s ,@shutter_animation_duration ,linear);
         pointer-events: none;
-        // .my_opacity (0);
-
-        &.bounceInLeft{
-            .my_opacity (1);
-            @animation-duration:  5s;
-        @animation-function_1:  cubic-bezier(0.9, 0.11, 0.48, 0.73);
-        @animation-function_2: linear;
-        @animation-delay: 0s;
-
-        animation-duration:  @animation-duration;
-        -moz-animation-duration:  @animation-duration;
-        -webkit-animation-duration:  @animation-duration;
-        animation-timing-function:   @animation-function_1;
-        -moz-animation-timing-function:   @animation-function_1;
-        -webkit-animation-timing-function:   @animation-function_1;
-        -webkit-animation-delay+: @animation-delay;
-        -moz-animation-delay+: @animation-delay;
-        -ms-animation-delay+: @animation-delay;
-        -o-animation-delay+: @animation-delay;
-        animation-delay+:@animation-delay;
-        }
+        z-index: 9999;
 
 
-
-
-        &.FlyInLeft{
+        &.active{
         .my_opacity (0);
-         .my_trasform(translateX(20vw));
+        .my_trasform(translateX(@end_translate));
         }
-
-         &.active{
-        }
-
-        // &.invisible{
-        //     visibility: hidden;
-        // }
             &:after{
             position: absolute;
             content: '';
-            left: 0px;
+            right: 0;
             top: 1px;
-            // display: none;
-            width: 1px;
+            width: 150vw;
             height: 1px;
             border-radius: 0%;
-            background-color: #fff;
-            .my_trasform(scaleX(0vw));
-            // .my_trasform(scaleX(999));
-            // .my_trasform(translate(100vw));
+            background-color: white;
             pointer-events: none;
-            .my_transition(all 3.3s  0s cubic-bezier(0.9, 0.11, 0.48, 0.73));
+            .my_transition(all @shutter_animation_duration  0s @transition_function);
+            z-index: -1;
             }
 
-            // &.active{
-            // .my_opacity (0);
-            // color: white;
-            // }
-
             &.active:after{
-            .my_trasform(translate(-20vw));
-            .my_trasform(scaleX(100vw));
-            // .my_trasform(scaleX(999));
-             .my_transform-origin(right center);
             display: block;
-            // animation: fadeOut 4s linear 0s 1 normal both ;
+            .animation(fadeOut);
             }
         }
     }
