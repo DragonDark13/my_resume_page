@@ -114,7 +114,6 @@
 
 }
 
-
 .transition_cross_trf (@property: all,@duration: 0s,@delay: 0s,@ease: ease-in-out) when not (@property=transform) {
     -webkit-transition+: @arguments;
        -moz-transition+: @arguments;
@@ -122,61 +121,29 @@
             transition+: @arguments;
 }
 
+.media_min(@size,@rules) {
+    @px: px;
+    @size_px: e("@{size}@{px}");
+    @media (max-width: @size_px) {
+        @rules();
+    };
+};
+
+.media_max(@size,@rules) {
+    @px: px;
+    @size_px: e("@{size}@{px}");
+    @media (min-width: @size_px) {
+        @rules();
+    };
+};
+
  /*=====  End of mixin  ======*/
 
-h1,
-h1,
-h2,
-h3,
-h4,
-h5{
-font-family: Verdana, Geneva, sans-serif;
-}
+ /*======================================
+ =            Less Variables            =
+ ======================================*/
 
-.wrapper{
-background-color: #0C5DA5;
-padding: 20px 0px;
-overflow: hidden;
-}
-
-
-/*=============================================
-=            Left Sidebar            =
-=============================================*/
-    aside{
-    border-right: 1px solid #CCC;
-    }
-        .photo{
-        padding: 0px 15px;
-        margin-bottom: 15px;
-        }
-
-            img{
-            width: 100%;
-            }
-                .list-group{
-                box-shadow: none;
-
-                    &-item{
-                    background-color: transparent;
-                    border: none;
-                    color: #CCC;
-                    }
-
-                    &-item-heading{
-                    text-transform: capitalize;
-                    }
-                }
-
-/*=====  End of  Left Sidebar  ======*/
-
-
-/*=============================================
-=            Right Sidebar            =
-=============================================*/
-
-
-/* variables for animation */
+ /* variables for animation */
 
 @thumbnail_anim_duration: 1.9s;
 @two_row_thumbnail_anim_delay: 0.3s;
@@ -190,11 +157,87 @@ overflow: hidden;
 
 
 
+ /*=====  End of Less Variables  ======*/
+
+
+ /*===================================
+ =            Base styles            =
+ ===================================*/
+
+ h1,
+h1,
+h2,
+h3,
+h4,
+h5{
+font-family: Verdana, Geneva, sans-serif;
+}
+
+.wrapper{
+background-color: #0C5DA5;
+padding: 20px 0px;
+}
+
+.wrapper,
+.page-header{
+overflow: hidden;
+}
+
+ /*=====  End of Base styles  ======*/
+
+
+
+ /*==============================
+ =            Header            =
+ ==============================*/
+
+ .page-header .track .fa:after{
+background-color: #408dd2;
+}
+
+ /*=====  End of Header  ======*/
+
+
+
+/*=============================================
+=            Left Sidebar            =
+=============================================*/
+    aside{
+    border-right: 1px solid #CCC;
+    }
+        .photo{
+        padding: 0px 15px;
+        margin-bottom: 15px;
+        .animation_duration;
+        }
+
+            img{
+            width: 100%;
+             border-radius: 4px;
+            }
+                .list-group{
+                box-shadow: none;
+
+                    &-item{
+                    background-color: transparent;
+                    border: none;
+                    color: #CCC;
+                    }
+                }
+
+/*=====  End of  Left Sidebar  ======*/
+
+
+/*=============================================
+=            Right Sidebar            =
+=============================================*/
+
     .my_skills{
 
         .thumbnail{
         margin-bottom: 23px;
         border-width: 0px;
+        padding: 22px 4px;
         text-align: center;
         text-transform: uppercase;
         color: #FFF;
@@ -205,7 +248,7 @@ overflow: hidden;
             .fa {
             display: block;
             font-size: 2em;
-            line-height: 80px;
+            line-height: 55px;
             color: #64B6FF;
             .my_transition(0.3s);
             }
@@ -231,10 +274,11 @@ overflow: hidden;
         position: absolute;
         right: 0;
         top: 0px;
-        top: 54px;
+        top: 19px;
         text-align: right;
         line-height: 0px;
         color: #64B6FF;
+        font-size: 28px;
         .my_opacity (1);
         .my_trasform(translateX(@start_translate));
         .transition_cross_trf(transform, @shutter_animation_duration ,0s ,@transition_function);
@@ -306,8 +350,131 @@ footer{
 }
 
 
-
 /*=====  End of Footer  ======*/
+
+/*===================================
+=            Mediascreen            =
+===================================*/
+
+
+.media_max(1650,{
+
+    .my_skills .thumbnail{
+        padding: 44px 4px;
+    }
+
+    .container{
+        width: 94%;
+    }
+
+});
+
+
+.media_max(1281,{
+
+    .container{
+        width: 98%;
+    }
+
+});
+
+
+.media_min(991,
+{
+    .my_skills .thumbnail{
+    min-height: 140px;
+    }
+}
+);
+
+.media_min(767,
+{
+    aside{
+
+        .photo,
+        .list-group{
+            width: 50%;
+            float: left;
+        }
+    }
+
+    .my_skills{
+
+        &>*:not(.track){
+        width: 100% / 3;
+        }
+
+        .track {
+        display: none;
+        }
+    }
+
+    .track + div + div + div .thumbnail,
+    .track + div + div .thumbnail,
+    .thumbnail
+    {
+        .animation_delay(0s);
+    }
+}
+);
+
+
+.media_min(639,{
+
+    aside{
+        .photo,
+        .list-group{
+        float: none;
+        width: 100%;
+        }
+
+        .list-group{
+            text-align: center;
+        }
+    }
+
+});
+
+.media_min(575,{
+
+    .page-header .row>*{
+        padding: 0px 20px;
+    }
+
+});
+
+
+.media_min(555,
+{
+    .my_skills{
+
+        &>*:not(.track){
+        width: 50%;
+        }
+    }
+});
+
+.media_min(464,{
+
+    .my_skills{
+
+        &>*:not(.track){
+        width: 100%;
+        }
+    }
+});
+
+.media_min(423,{
+
+    .contacts li{
+        font-size: 2em;
+    }
+
+});
+
+
+/*=====  End of Mediascreen  ======*/
+
 
 
 
