@@ -2,12 +2,16 @@ jQuery(function(){
 
 var CheckerOffset = 50;
 
+jQuery('.my_skills .thumbnail, .photo').addClass('hide_elem');
+
 jQuery('.my_skills .thumbnail, .photo').viewportChecker({
   classToAdd: 'animated zoomIn',
   classToRemove: 'invisible',
-  offset: CheckerOffset
+  offset: CheckerOffset,
+    callbackFunction: function(elem, action){
+  elem.removeClass('hide_elem');
+  }
   });
-
 
 if (document.body.clientWidth >= '768') {
 
@@ -15,7 +19,7 @@ if (document.body.clientWidth >= '768') {
   offset: CheckerOffset,
   callbackFunction: function(elem, action){
   elem.addClass('active ');
-  },
+  }
   });
 
   var scroll = jQuery(window).scrollTop();
@@ -24,6 +28,5 @@ if (document.body.clientWidth >= '768') {
 }
 
 else{}
-
 
 });
