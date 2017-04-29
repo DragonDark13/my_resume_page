@@ -36,7 +36,7 @@
     <!-- my scrip -->
 
     <script type="text/javascript">
-    jQuery(function(){var CheckerOffset=50;jQuery('.my_skills .thumbnail').addClass('hide_elem');jQuery('.my_skills .thumbnail').viewportChecker({classToAdd:'animated zoomIn',classToRemove:'invisible',offset:CheckerOffset,callbackFunction:function(elem,action){elem.removeClass('hide_elem');}});if(document.body.clientWidth>='768'){jQuery('.track .fa').viewportChecker({offset:CheckerOffset,callbackFunction:function(elem,action){elem.addClass('active ');}});var scroll=jQuery(window).scrollTop();jQuery("html, body").animate({scrollTop:"0px"},"800");}
+    jQuery(function(){var CheckerOffset=50;jQuery('.my_skills .thumbnail').addClass('hide_elem');jQuery('.my_skills .thumbnail, .photo').viewportChecker({classToAdd:'animated zoomIn',classToRemove:'invisible',offset:CheckerOffset,callbackFunction:function(elem,action){elem.removeClass('hide_elem');}});if(document.body.clientWidth>='768'){jQuery('.track .fa').viewportChecker({offset:CheckerOffset,callbackFunction:function(elem,action){elem.addClass('active ');}});var scroll=jQuery(window).scrollTop();jQuery("html, body").animate({scrollTop:"0px"},"800");}
     else{}});
     </script>
 </head>
@@ -57,6 +57,9 @@
     <div class="container">
         <div class="row">
             <aside class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="photo invisible">
+                    <img src="https://lh3.googleusercontent.com/v-k3Zj14WLfBV3raGC8atgXT0oIhjdVz0p8r3kwy-1soQYsZ7cLrkE72u822s662mD8QKNgOnrdcGlhLYjw5K5Jn5egP2iLFSazq5cZwMQEVcIANrm5Vuxw55miNFLsfXdFnM5NYPXAOpdoq2IR9O6_IEnaKFEgtH-Q04DnC2xP1-op4nsnso0V-Zasnxfrv3jqxoLViVkHRcgGQnF_8dfEN1N-ZKfZume_7WfQHX-cueEAbyTUdeUVTvy4oT8jB-o3AcdTUm71VkPExRz4uUdv8xVW_grq2DPiqy0e0KksBepVqLEOYSYJE6QWNC_Kz3-ku_H1_mBWKue3pZxh1PJcet9-zkUZ1YGh_5UMC9keH0IRYCzAbhRBPTITN2Kni3kKuQS_WKwqa67RWn7g854jJqs4FBHUfMHy76-PLV5oJP0Of1DEmaATMIzQ9G__tbN30i_0xJ-V31v8wMDNxUEoP2Ps4CnqPK_kbQ6dyCabK2s0MImpNasGJMBris1yYJ6sUEeUjtOD2zLQANjqiaD-gQw5175OHnf05gRptNm99W3mGoT5IhAt-gKIg7SB5kJMvA6K3SFO44tFYjPcyUSpcg3xL_ADuo6BLelFHs6CTuJh9apE=w392-h294-no" alt="placeholder+image">
+            </div>
                 <ul class="list-group">
                     <li class="list-group-item">
                         <h4 class="list-group-item-heading">
